@@ -1,8 +1,8 @@
 #Fill out these variables.
 
 # Your config
-UIName = "Nebula"
-User = "Jack"
+UIName = ""
+User = ""
 AuthorisedUsers = [User]
 
 # Your stuff
