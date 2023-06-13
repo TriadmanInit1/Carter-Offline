@@ -14,5 +14,5 @@ def CarterInput(sentence):
 
     speak(ResponseOutput)
 
-sentence = input(f"{User}: ")
+sentence = None
 CarterInput(sentence)
