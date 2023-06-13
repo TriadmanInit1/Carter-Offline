@@ -13,3 +13,6 @@ def CarterInput(sentence):
     print(ResponseOutput)
 
     speak(ResponseOutput)
+
+sentence = input(f"{User}: ")
+CarterInput(sentence)
