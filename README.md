@@ -16,4 +16,4 @@ Sanware MIT License included in the repo! \
 PythonEngineer for his fantastic intent classification implementation code! https://github.com/patrickloeber/pytorch-chatbot.git
 Carter is created by Huw Prosser at CarterLabs! https://www.carterlabs.ai/
 
-Project maintained by Cipher & CodeZhifty at Sanware Technologies
+Project maintained by Cipher & CodeZhifty
