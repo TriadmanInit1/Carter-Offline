@@ -8,7 +8,9 @@ This is a highly stripped-back version of my personal AI project, which will hop
 
 ## How to Install
 
-1. run > pip install Carter-Offline
+```
+pip install Carter-Offline
+```
 
 ## Credits 
 
