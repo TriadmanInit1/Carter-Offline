@@ -1,4 +1,4 @@
-# Sanware Carter MK 0.1
+<h2> Carter-Offline </h2>
 
 This program is an Artificial Intelligence algorithm, which learns from your input and Carter's responses to generate new and unique responses each time it is trained.
 
