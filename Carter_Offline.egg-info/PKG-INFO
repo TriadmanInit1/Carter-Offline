@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Carter-Offline
-Version: 2.0.1
+Version: 2.0.2
 Home-page: https://github.com/Cipher58
 Download-URL: https://github.com/Cipher58/Carter-Offline/
 Author: Cipher58
@@ -31,7 +31,7 @@ https://github.com/Cipher58/Janex
 Firstly, you'll need to install the library using the Python pip package manager.
 
 ```
-python3 -m pip install CarterOffline
+python3 -m pip install Carter-Offline
 ```
 Secondly, you need to import the library into your Python script.
 

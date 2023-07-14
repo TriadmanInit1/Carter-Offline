@@ -18,7 +18,7 @@ https://github.com/Cipher58/Janex
 Firstly, you'll need to install the library using the Python pip package manager.
 
 ```
-python3 -m pip install CarterOffline
+python3 -m pip install Carter-Offline
 ```
 Secondly, you need to import the library into your Python script.
 
