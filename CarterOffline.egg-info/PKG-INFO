@@ -1,3 +1,16 @@
+Metadata-Version: 2.1
+Name: CarterOffline
+Version: 2.0.1
+Home-page: https://github.com/Cipher58
+Download-URL: https://github.com/Cipher58/Carter-Offline/
+Author: Cipher58
+Author-email: cipher58public@gmail.com
+License: Lily 1.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # Carter Offline
 
 Carter Offline is an intent classifier which is based on a modified version of Janex, and utilises LazyLyrics' Carter-Py library.

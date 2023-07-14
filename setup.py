@@ -8,7 +8,7 @@ setuptools.setup(
     name="Carter-Offline",
 
     # version of the module
-    version="2.0.0",
+    version="2.0.1",
 
     # Name of Author
     author="Cipher58",
