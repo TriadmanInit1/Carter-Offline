@@ -15,6 +15,115 @@ class CarterOffline:
 
         return words
 
+    def create_intents(self):
+
+        data = {
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Good day",
+                "hello"
+            ],
+            "responses": [
+                "Hey :-)",
+                "Hello, thanks for visiting",
+                "Hi there, what can I do for you?",
+                "Hi there, how can I help?",
+                "Hello again. I apologize if I may have missed something earlier. Is there anything pressing that you need me to assist with?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "See you later, thanks for visiting",
+                "Have a nice day",
+                "Bye! Come back again soon."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Thank's a lot!"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure"
+            ]
+        },
+        {
+            "tag": "items",
+            "patterns": [
+                "Which items do you have?",
+                "What kinds of items are there?",
+                "What do you sell?"
+            ],
+            "responses": [
+                "We sell coffee and tea",
+                "We have coffee and tea"
+            ]
+        },
+        {
+            "tag": "payments",
+            "patterns": [
+                "Do you take credit cards?",
+                "Do you accept Mastercard?",
+                "Can I pay with Paypal?",
+                "Are you cash only?"
+            ],
+            "responses": [
+                "We accept VISA, Mastercard and Paypal",
+                "We accept most major credit cards, and Paypal"
+            ]
+        },
+        {
+            "tag": "delivery",
+            "patterns": [
+                "How long does delivery take?",
+                "How long does shipping take?",
+                "When do I get my delivery?"
+            ],
+            "responses": [
+                "Delivery takes 2-4 days",
+                "Shipping takes 2-4 days"
+            ]
+        },
+        {
+            "tag": "funny",
+            "patterns": [
+                "Tell me a joke!",
+                "Tell me something funny!",
+                "Do you know a joke?"
+            ],
+            "responses": [
+                "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+                "What did the buffalo say when his son left for college? Bison."
+            ]
+                }
+            ]
+        }
+
+        file_path = "intents.json"
+
+        with open(file_path, "w") as json_file:
+            json.dump(data, json_file, indent=4)
+
+        print("JSON file created successfully.")
+
     def tokenize_list(self, input_list):
         token_words = []
         for word in input_list:
@@ -24,9 +133,15 @@ class CarterOffline:
         return token_words
 
     def train(self):
-        with open(self.intents_file_path, "r") as file:
-            intents = json.load(file)
-        return intents
+        try:
+            with open(self.intents_file_path, "r") as file:
+                intents = json.load(file)
+                return intents
+        except:
+            self.create_intents()
+            with open(self.intents_file_path, "r") as file:
+                intents = json.load(file)
+                return intents
 
     def pattern_compare(self, input_string):
         input_string_lower = input_string.lower()
@@ -153,20 +268,32 @@ class CarterOffline:
 
     def SendToCarter(self, CarterAPI, input_string, User):
         carter = Carter(CarterAPI)
-
         ResponseOutput = carter.say(input_string, User)
-
         intents = self.train()
-
         target_class = self.pattern_compare(input_string)
+
+        tag = None
+        intent_tag = None
+        Done = 0
 
         for intent in intents['intents']:
             tag = target_class
             intent_tag = intent.get("tag")
             if intent_tag == tag:
+                Done = 1
                 intent.setdefault("patterns", []).append(input_string)
                 intent.setdefault("responses", []).append(ResponseOutput.output_text)
+                with open(self.intents_file_path, 'w') as json_file:
+                    json.dump(intents, json_file, indent=4, separators=(',', ': '))
+                break
 
+            if Done == 0:
+                new_class = {
+                "tag": User,
+                "patterns": [input_string],
+                "responses": [ResponseOutput.output_text]
+                }
+                intents['intents'].append(new_class)
                 with open(self.intents_file_path, 'w') as json_file:
                     json.dump(intents, json_file, indent=4, separators=(',', ': '))
 
