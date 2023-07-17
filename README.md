@@ -4,6 +4,8 @@ Carter Offline is an intent classifier which is based on a modified version of J
 
 It compares the input you send to your carter agent with a list of patterns in your chosen intents file, and then remembers the class. Once your Carter agent creates a response, the program saves the response to your intents, recording the interaction and improving your intents dataset.
 
+This is based on an older version of Janex, and so it may not include the latest features from there unless explicitly added in.
+
 See also:
 
 ```
