@@ -35,6 +35,8 @@ from CarterOffline import *
 To use this program, you will need to define your API key, name and intent file path.
 
 ```
+intents_file_path = "intents.json"
+
 CarterAPI = "YOUR CARTER AGENT'S API"
 
 input_string = "Hello!" # for example
