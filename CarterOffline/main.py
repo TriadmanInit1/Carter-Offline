@@ -6,7 +6,7 @@ class CarterOffline:
         self.intents_file_path = intents_file_path
         self.CarterAPI = CarterAPI
 
-    def SendToCarter(input_string, User):
+    def SendToCarter(self, input_string, User):
         carter = Carter(self.CarterAPI)
         response = carter.say(input_string, User)
         thesaurus_file_path = "thesaurus.json"

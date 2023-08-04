@@ -8,7 +8,7 @@ setuptools.setup(
     name="Carter-Offline",
 
     # version of the module
-    version="2.0.4.alpha",
+    version="2.0.8",
 
     # Name of Author
     author="Cipher58",
@@ -37,9 +37,9 @@ setuptools.setup(
     # then you must add there, in order to download every requirement of package
 
     install_requires=[
-          "numpy",
-        "torch",
         "carter-py",
+        "Janex",
+        "CipherProgram",
         ],
 
 
