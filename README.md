@@ -53,7 +53,7 @@ CarterOffline = CarterOffline(intents_file_path, CarterAPI)
 Here is the simple bit of code that sends the message to your Carter agent using the Carter-Py library, and then uses the Janex code to classify it, and save it to your intents file.
 
 ```
-ResponseOutput = SendToCarter(CarterAPI, input_string, User)
+ResponseOutput = CarterOffline.SendToCarter(input_string, User)
 
 print(ResponseOutput)
 
