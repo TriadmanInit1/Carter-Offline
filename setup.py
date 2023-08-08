@@ -8,7 +8,7 @@ setuptools.setup(
     name="Carter-Offline",
 
     # version of the module
-    version="2.0.21",
+    version="2.0.22",
 
     # Name of Author
     author="Cipher58",
@@ -40,6 +40,7 @@ setuptools.setup(
         "carter-py",
         "Janex",
         "CipherProgram",
+        "JanexPT",
         ],
 
 
