@@ -35,9 +35,7 @@ from CarterOffline import *
 To use this program, you will need to define your API key, name and intent file path.
 
 ```
-intents_file_path = "intents.json"
-
-CarterAPI = "YOUR CARTER AGENT'S API"
+intents_file_path, thesaurus_file_path, UIName, CarterAPI = "intents.json", "thesaurus.json", "YOUR CARTER AGENT'S NAME", "YOUR CARTER AGENT'S API"
 
 input_string = "Hello!" # for example
 
@@ -45,7 +43,7 @@ User = "YOUR NAME"
 
 # Create an instance of the CarterOffline class
 
-CarterOffline = CarterOffline(intents_file_path, CarterAPI)
+CarterOffline = CarterOffline(intents_file_path, thesaurus_file_path, UIName, CarterAPI)
 ```
 
 <h5>Speak to your agent</h5>
@@ -56,5 +54,4 @@ Here is the simple bit of code that sends the message to your Carter agent using
 ResponseOutput = CarterOffline.SendToCarter(input_string, User)
 
 print(ResponseOutput)
-
 ```
