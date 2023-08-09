@@ -12,15 +12,29 @@ class CarterOffline:
         self.intentm = IntentMatcher(intents_file_path, thesaurus_file_path)
 
     def SendToCarter(self, input_string, User):
+        try:
+            open("data.pth", "r")
+        except:
+            self.matcher.trainpt()
         carter = Carter(self.CarterAPI)
         response = carter.say(input_string, User)
         intent_class = self.matcher.pattern_compare(input_string, User)
         intents = self.intentm.train()
 
+        Done = 0
+
         for intent in intents['intents']:
             if intent.get("tag") == intent_class.get("tag"):
-                intent_class.setdefault("patterns", []).append(input_string)
-                intent_class.setdefault("responses", []).append(response.output_text)
+                intent.setdefault("patterns", []).append(input_string)
+                intent.setdefault("responses", []).append(response.output_text)
+                Done = 1
+
+        if Done == 0:
+            for intent in intents['intents']:
+                if intent.get("tag") == "small-talk":
+                    intent.setdefault("patterns", []).append(input_string)
+                    intent.setdefault("responses", []).append(response.output_text)
+                    Done = 1
 
         with open(self.intents_file_path, 'w') as json_file:
             json.dump(intents, json_file, indent=4, separators=(',', ': '))
